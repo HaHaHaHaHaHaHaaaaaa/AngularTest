@@ -1,0 +1,32 @@
+.one{
+    flex-shrink: 0;
+}
+.two{
+    white-space: nowrap;
+    text-overflow:ellipsis;
+    overflow: hidden;
+    flex-basis: 280px;
+    border: 1px dotted red;
+    order: -1
+}
+.three{
+
+}
+div{
+    width:100px;
+    height: 100px;
+    background: orange;
+    display: inline-flex;
+  
+    align-items: center;
+   /*  justify-content: center; */
+    
+}
+.main{
+    width:100%;
+    height: 400px;
+    background: white;
+    border: 1px solid red;
+    display: flex;
+    justify-content: space-between
+}

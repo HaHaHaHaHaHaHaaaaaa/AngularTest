@@ -1,0 +1,25 @@
+<!-- <svg width="100%" height="20" version="1.1" xmlns="http://www.w3.org/2000/svg">
+  <rect id="svg_bg" x="0" y="0" rx="5" ry="5" width="100%" height="100%" fill="lightgray" />
+  <rect id="svg_pg" x="0" y="0" rx="5" ry="5" [style.width]="svgWidth" height="100%" fill="orange" />
+</svg> -->
+
+
+<!-- points="0 100,320 100,320 400,220 500,100 500,0 400"  --><!-- viewBox="0 0 320 500" -->
+<div *ngIf="true;else p2">
+    tttttttttttttt
+</div>
+<ng-template #p2><p>6666666</p></ng-template>
+<svg id="bunker" width="50" height="100" version="1.1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 500">
+  <polyline points="0 0,320 0,320 400,220 500,100 500,0 400,0 0" [style.stroke]="svgcolor" fill="transparent" [style.stroke-width]="1"
+  />
+  <polyline id="svghh" [attr.points]="svgpath" fill="#1BAAE2" />
+</svg>
+
+
+<img src="assets/bunker.svg" width="200" height="600" alt="" srcset="">
+
+
+<input type="number" [(ngModel)]="nm" (ngModelChange)="rd($event)">
+<button (click)="randomNum()">随机值</button>
+
+<app-inputtransfer [test]="getobj()"></app-inputtransfer>

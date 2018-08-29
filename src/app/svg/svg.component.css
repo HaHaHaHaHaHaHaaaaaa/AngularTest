@@ -1,0 +1,21 @@
+.svgpg {
+    height: 3.4375rem;
+    padding: .3125rem .625rem;
+    display: flex;
+    align-items: center;
+  }
+
+  .lf,
+  .rt {
+    position: absolute;
+    color: #A7A7A7;
+    font-size: .75rem
+  }
+  
+  .lf {
+    left: .625rem;
+  }
+  
+  .rt {
+    right: .625rem;
+  }

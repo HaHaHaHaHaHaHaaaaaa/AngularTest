@@ -1,0 +1,5 @@
+div{
+    column-count: 3;
+    column-gap: 10px;
+    column-width: 30px;
+}

@@ -1,0 +1,28 @@
+.outer{
+    background:gray;
+    width:100%;
+    height: 20px; 
+    position: relative;
+    border-radius: 20px;
+}
+
+.inner{
+    background: orange;
+    width:20%;
+    position: absolute;
+    top:0;
+    left: 0;
+    height: 20px;
+    border-radius: 20px;
+}
+#main{
+  /*   display: inline-block */
+}
+#div1{
+    background: yellow;
+    margin: 10px 0;
+}
+#div2{
+    background: blue;
+    display: inline
+}

@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+  <style>
+    body {
+      background: linear-gradient(to right, #222 50%, #272727 50%);
+      background-size: 8rem 100%;
+      position: relative;
+      height: 100%;
+    }
+
+
+    #im {
+      width: 300px;
+      height: 600px;
+      box-shadow: inset 0 0 5px orange;
+      padding: 10px;
+      -webkit-perspective: 200;
+    }
+
+    #tm {
+      width: 100%;
+      font-size: 36px;
+      font-family: 宋体;
+      color: white;
+      text-shadow: 5px 5px 5px white
+    }
+
+    #abs {
+      position: absolute;
+      left: 0;
+      top: 0;
+      color: green;
+      width: 600px;
+      height: 800px;
+      /*    background: rgba(222, 211, 0,0.8); */
+      z-index: 2
+    }
+
+    img {
+      box-shadow: 5px 5px 3px #0087CB;
+      -webkit-transform-style: preserve-3d;
+      -webkit-transition: 1s
+    }
+
+    #im:hover img {
+      -webkit-transform: rotateY(90deg)
+    }
+    /*   .Qcontainer {
+      height: 100%;
+      width: 28%;
+      position: relative;
+      -webkit-perspective: 800;
+      float: left;
+      margin-right: 2%;
+    }
+
+    .film {
+      width: 100%;
+      height: 15em;
+      -webkit-transform-style: preserve-3d;
+      -webkit-transition: 1s;
+    }
+
+    .Qcontainer:hover .film {
+      -webkit-transform: rotateY(180deg);
+    }
+
+    .face {
+      position: absolute;
+      -webkit-backface-visibility: hidden;
+    }
+
+    .back {
+      width: 66%;
+      height: 127%;
+      -webkit-transform: rotateY(180deg);
+      background: #3b3b3b;
+      background: -webkit-linear-gradient(top,
+      rgba(0, 0, 0, 0.65) 0%,
+      rgba(0, 0, 0, 0) 100%);
+      padding: 15%;
+    } */
+
+  </style>
+</head>
+
+<body>
+  <div id="tm" class="tm">hello</div>
+  <div id="im">
+    <img src="./about.png" width="300px" height="600px" alt="">
+  </div>
+  <!--   <div id="abs">abs</div> -->
+
+  <!--   <section class="Qcontainer">
+    <div class="film">
+      <div class="face front">
+        <img src="./about.png" alt="The Goonies" />
+      </div>
+      <div class="face back">
+        <h5>HOT!</h5>
+      </div>
+    </div>
+  </section> -->
+</body>
+
+</html>
