@@ -27,6 +27,7 @@
     "@types/highcharts": "^5.0.9",
     "@types/jquery": "^3.2.16",
     "angular2-template-loader": "^0.6.2",
+    "async": "^2.6.1",
     "awesome-typescript-loader": "^3.2.3",
     "babel-core": "^6.26.0",
     "babel-loader": "^7.1.2",

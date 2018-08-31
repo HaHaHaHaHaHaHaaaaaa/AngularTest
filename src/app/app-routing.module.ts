@@ -1,3 +1,4 @@
+import { AsyncComponent } from './async/async.component';
 import { NgModule, } from '@angular/core';
 import { CommonModule, } from '@angular/common';
 import { Routes, RouterModule } from '@angular/router';
@@ -22,7 +23,7 @@ import { Test6Component } from './test6/test6.component';
 const routes: Routes = [
   {
     path: '',
-    redirectTo: 'svg',
+    redirectTo: 'async',
     pathMatch: 'full',
   },
   {
@@ -101,15 +102,23 @@ const routes: Routes = [
     data: {
       title: ''
     }
+  },
+  {
+    path: 'async',
+    component: AsyncComponent,
+    data: {
+      title: ''
+    }
   }
 
 ]
 
 @NgModule({
   imports: [
-    RouterModule.forRoot(routes), CommonModule, FormsModule,EditorModule
+    RouterModule.forRoot(routes), CommonModule, FormsModule, EditorModule
   ],
-  declarations: [InputtransferComponent,SvgMumComponent,SvgComponent, Test1Component, DtDirective, Test3Component, Test4Component, BtnHttpDirective, FuncComponent, ProgressComponent, LoadingBarComponent,Test5Component,TinymceComponent,Test6Component],
-  exports: [RouterModule,InputtransferComponent]
+  // tslint:disable-next-line:max-line-length
+  declarations: [InputtransferComponent, SvgMumComponent, SvgComponent, Test1Component, DtDirective, Test3Component, Test4Component, BtnHttpDirective, FuncComponent, ProgressComponent, LoadingBarComponent, Test5Component, TinymceComponent, Test6Component,AsyncComponent],
+  exports: [RouterModule, InputtransferComponent]
 })
 export class AppRoutingModule { }
