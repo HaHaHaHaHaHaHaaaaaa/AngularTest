@@ -1,3 +1,4 @@
+import { PromiseComponent } from './promise/promise.component';
 import { AsyncComponent } from './async/async.component';
 import { NgModule, } from '@angular/core';
 import { CommonModule, } from '@angular/common';
@@ -8,7 +9,7 @@ import { Test3Component } from './test3/test3.component';
 import { Test4Component } from './test4/test4.component';
 import { BtnHttpDirective } from './btn-http.directive';
 
-import { FormsModule } from '@angular/forms'
+import { FormsModule } from '@angular/forms';
 import { FuncComponent } from './func/func.component';
 import { ProgressComponent } from './progress/progress.component';
 import { LoadingBarComponent } from './loading-bar/loading-bar.component';
@@ -109,16 +110,29 @@ const routes: Routes = [
     data: {
       title: ''
     }
+  },
+  {
+    path: 'promise',
+    component: PromiseComponent,
+    data: {
+      title: ''
+    }
   }
 
-]
+];
 
 @NgModule({
   imports: [
     RouterModule.forRoot(routes), CommonModule, FormsModule, EditorModule
   ],
   // tslint:disable-next-line:max-line-length
-  declarations: [InputtransferComponent, SvgMumComponent, SvgComponent, Test1Component, DtDirective, Test3Component, Test4Component, BtnHttpDirective, FuncComponent, ProgressComponent, LoadingBarComponent, Test5Component, TinymceComponent, Test6Component,AsyncComponent],
+  declarations: [InputtransferComponent, SvgMumComponent, SvgComponent, Test1Component,
+    DtDirective, Test3Component, Test4Component, BtnHttpDirective,
+    FuncComponent, ProgressComponent, LoadingBarComponent,
+    Test5Component, TinymceComponent, Test6Component, AsyncComponent,
+    PromiseComponent
+
+  ],
   exports: [RouterModule, InputtransferComponent]
 })
 export class AppRoutingModule { }
