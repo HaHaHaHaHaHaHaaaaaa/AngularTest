@@ -29,12 +29,29 @@ export class AsyncComponent implements OnInit {
     // });
 
 
-    const urls = ['http://localhost:3000/prod', 'http://localhost:3000/dev', 'http://localhost:3000/test'];
+    // const urls = ['http://localhost:3000/prod', 'http://localhost:3000/dev', 'http://localhost:3000/test'];
 
+    const urls = [];
+    for (let i = 0; i < 12; i++) {
+      urls.push(`http://datasource_${i + 1}`);
+    }
+    let concurrentCount = 0;
+    function fetchUrl(url, callback) {
+      concurrentCount++;
+      console.log('当前http request' + url + 'response' + '_当前并发数量' + concurrentCount);
+      setTimeout(() => {
+        concurrentCount--;
+        callback('当前http request' + url + 'response');
+        console.log('==========================================');
+      }, 2000);
+    }
 
     mapLimit(urls, 3, async (url, callback) => {
-      const response = await this.http.get(url).toPromise();
-      callback(null, response);
+      // const response = await this.http.get(url).toPromise();
+      fetchUrl(url, (res) => {
+        callback(null, res);
+      });
+
       // return response;
     }, (err, results) => {
       if (err) {
