@@ -36,3 +36,6 @@
   <button type="button" class="btn btn-secondary">Middle</button>
   <button type="button" class="btn btn-secondary">Right</button>
 </div>
+
+
+<div *ngFor="let item of users|async">{{item.username+item.email}}</div>

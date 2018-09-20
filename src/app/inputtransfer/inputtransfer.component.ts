@@ -5,28 +5,28 @@ import { Component, OnInit, Input, SimpleChanges, OnChanges } from '@angular/cor
   templateUrl: './inputtransfer.component.html',
   styleUrls: ['./inputtransfer.component.css']
 })
-export class InputtransferComponent implements OnInit,OnChanges {
-  @Input('test') test:string
+export class InputtransferComponent implements OnInit, OnChanges {
+  @Input('test') test: string
 
-  hiddenTest:boolean=false
+  hiddenTest: boolean = false
   constructor() { }
 
   ngOnInit() {
-   
+
   }
 
-  ngOnChanges(changes: SimpleChanges){
+  ngOnChanges(changes: SimpleChanges) {
     console.log(changes)
-      if(changes.test.currentValue&&changes.test.currentValue.header){
-        this.hiddenTest=true
-      }
+    if (changes.test.currentValue && changes.test.currentValue.header) {
+      this.hiddenTest = true
     }
+  }
 
-   /*  ngDoCheck(){
-      if(this.test.header="888888888"){
-        console.log('testtttt......')
-      }
-    } */
-  
+  /*  ngDoCheck(){
+     if(this.test.header="888888888"){
+       console.log('testtttt......')
+     }
+   } */
+
 
 }

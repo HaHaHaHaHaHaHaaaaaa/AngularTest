@@ -1,3 +1,4 @@
+import { ObservableComponent } from './observable/observable.component';
 import { PromiseComponent } from './promise/promise.component';
 import { AsyncComponent } from './async/async.component';
 import { NgModule, } from '@angular/core';
@@ -24,7 +25,7 @@ import { Test6Component } from './test6/test6.component';
 const routes: Routes = [
   {
     path: '',
-    redirectTo: 'async',
+    redirectTo: 'observable',
     pathMatch: 'full',
   },
   {
@@ -117,6 +118,13 @@ const routes: Routes = [
     data: {
       title: ''
     }
+  },
+  {
+    path: 'observable',
+    component: ObservableComponent,
+    data: {
+      title: ''
+    }
   }
 
 ];
@@ -130,7 +138,7 @@ const routes: Routes = [
     DtDirective, Test3Component, Test4Component, BtnHttpDirective,
     FuncComponent, ProgressComponent, LoadingBarComponent,
     Test5Component, TinymceComponent, Test6Component, AsyncComponent,
-    PromiseComponent
+    PromiseComponent,ObservableComponent
 
   ],
   exports: [RouterModule, InputtransferComponent]

@@ -1,21 +1,38 @@
-import { async } from '@angular/core/testing';
+import { Observable, of } from 'rxjs';
 
 import { Component, OnInit } from '@angular/core';
 // import * as async from 'async';
 import { HttpClient } from '@angular/common/http';
 import mapLimit from 'async/mapLimit';
 import parallel from 'async/parallel';
-import map from 'async/map';
+import { retry, map, catchError } from 'rxjs/operators';
+
 @Component({
   selector: 'app-async',
   templateUrl: './async.component.html',
   styleUrls: ['./async.component.css']
 })
 export class AsyncComponent implements OnInit {
-
+  users: Observable<any>;
   constructor(private http: HttpClient) { }
 
+  getUser() {
+    this.users = this.http.get('http://localhost:3000/users').pipe(retry(3), map(res => {
+      console.log(res);
+
+    }), catchError(e => {
+      console.log('eeeeeeee', e);
+
+      return of['123'];
+    }));
+  }
+
   ngOnInit() {
+
+    this.getUser();
+
+
+
     const obj = { prod: 'http://localhost:3000/prod', dev: 'http://localhost:3000/dev', test: 'http://localhost:3000/test' };
     // async.forEachOf(obj, (value, key, callback) => {
 
