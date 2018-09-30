@@ -1,3 +1,4 @@
+import { HttpClient } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
 import { Observable } from 'rxjs';
 
@@ -7,11 +8,25 @@ import { Observable } from 'rxjs';
   styleUrls: ['./observable.component.css']
 })
 export class ObservableComponent implements OnInit {
-
-  constructor() { }
+  constructor(private http: HttpClient) { }
 
   ngOnInit() {
     this.checkPosition();
+    const a = 99;
+    const b = String(99);
+    const c = Number('12');
+    console.log(a, b, c);
+    // function identity<T>(arg: T): T {
+    //   return arg;
+    // }
+  }
+
+  upload(file) {
+    const fd = new FormData();
+    fd.append('file', file);
+    this.http.post('http://localhost:8080/testUploadFile', fd).subscribe(res => {
+
+    });
   }
 
 
