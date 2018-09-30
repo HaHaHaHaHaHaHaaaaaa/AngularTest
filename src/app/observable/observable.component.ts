@@ -1,4 +1,4 @@
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, JsonpClientBackend, HttpRequest, HttpResponse } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
 import { Observable } from 'rxjs';
 
@@ -8,7 +8,7 @@ import { Observable } from 'rxjs';
   styleUrls: ['./observable.component.css']
 })
 export class ObservableComponent implements OnInit {
-  constructor(private http: HttpClient) { }
+  constructor(private http: HttpClient, private jsonp: JsonpClientBackend) { }
 
   ngOnInit() {
     this.checkPosition();
@@ -19,6 +19,11 @@ export class ObservableComponent implements OnInit {
     // function identity<T>(arg: T): T {
     //   return arg;
     // }
+    const params = 'callback=JSONP_CALLBACK';
+    this.jsonp.handle(new HttpRequest('JSONP', 'http://localhost:3000/users/getinfo?' + params)).subscribe((res: HttpResponse<any>) => {
+      console.log(res.body);
+    });
+
   }
 
   upload(file) {
