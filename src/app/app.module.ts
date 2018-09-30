@@ -8,6 +8,7 @@ import { Test6Component } from './test6/test6.component';
 import { ServiceWorkerModule } from '@angular/service-worker';
 import { environment } from '../environments/environment';
 import { HttpClientModule, HttpClientJsonpModule } from '@angular/common/http';
+import { wblToken } from './async/injectToken';
 
 @NgModule({
   declarations: [
@@ -19,7 +20,9 @@ import { HttpClientModule, HttpClientJsonpModule } from '@angular/common/http';
     // tslint:disable-next-line:max-line-length
     BrowserModule, HttpClientModule, HttpClientJsonpModule, AppRoutingModule, ServiceWorkerModule.register('ngsw-worker.js', { enabled: environment.production })
   ],
-  providers: [],
+  providers: [
+    { provide: wblToken, useFactory: () => 'http://localhost:3000' }
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

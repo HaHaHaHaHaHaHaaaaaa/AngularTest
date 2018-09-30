@@ -1,11 +1,12 @@
 import { Observable, of } from 'rxjs';
 
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, InjectionToken, Inject, Injector } from '@angular/core';
 // import * as async from 'async';
 import { HttpClient } from '@angular/common/http';
 import mapLimit from 'async/mapLimit';
 import parallel from 'async/parallel';
 import { retry, map, catchError } from 'rxjs/operators';
+import { wblToken } from './injectToken';
 
 @Component({
   selector: 'app-async',
@@ -14,7 +15,13 @@ import { retry, map, catchError } from 'rxjs/operators';
 })
 export class AsyncComponent implements OnInit {
   users: Observable<any>;
-  constructor(private http: HttpClient) { }
+  constructor(private http: HttpClient, @Inject(wblToken) private wbl, private inj: Injector) {
+
+    // console.log(wbl);
+    console.log(inj.get(wblToken));
+    
+
+  }
 
   getUser() {
     this.users = this.http.get('http://localhost:3000/users').pipe(retry(3), map(res => {
