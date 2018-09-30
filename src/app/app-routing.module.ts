@@ -1,3 +1,4 @@
+import { GeneratorComponent } from './generator/generator.component';
 import { ObservableComponent } from './observable/observable.component';
 import { PromiseComponent } from './promise/promise.component';
 import { AsyncComponent } from './async/async.component';
@@ -125,7 +126,14 @@ const routes: Routes = [
     data: {
       title: ''
     }
-  }
+  },
+  {
+    path: 'generator',
+    component: GeneratorComponent,
+    data: {
+      title: ''
+    }
+  },
 
 ];
 
@@ -138,7 +146,7 @@ const routes: Routes = [
     DtDirective, Test3Component, Test4Component, BtnHttpDirective,
     FuncComponent, ProgressComponent, LoadingBarComponent,
     Test5Component, TinymceComponent, Test6Component, AsyncComponent,
-    PromiseComponent,ObservableComponent
+    PromiseComponent, ObservableComponent, GeneratorComponent
 
   ],
   exports: [RouterModule, InputtransferComponent]

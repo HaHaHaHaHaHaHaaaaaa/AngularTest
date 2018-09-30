@@ -9,11 +9,12 @@ import { ServiceWorkerModule } from '@angular/service-worker';
 import { environment } from '../environments/environment';
 import { HttpClientModule, HttpClientJsonpModule } from '@angular/common/http';
 import { wblToken } from './async/injectToken';
+import { GeneratorComponent } from './generator/generator.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    StpRepHttpDirective,
+    StpRepHttpDirective
 
   ],
   imports: [

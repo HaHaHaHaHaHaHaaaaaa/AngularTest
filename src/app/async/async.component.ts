@@ -19,8 +19,13 @@ export class AsyncComponent implements OnInit {
 
     // console.log(wbl);
     console.log(inj.get(wblToken));
-    
 
+    this.test(2);
+    this.test();
+  }
+
+  test(a = 1) {
+    console.log(a);
   }
 
   getUser() {
