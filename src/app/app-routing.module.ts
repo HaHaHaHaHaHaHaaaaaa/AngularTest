@@ -22,11 +22,12 @@ import { TinymceComponent } from './tinymce/tinymce.component';
 import { EditorModule } from '@tinymce/tinymce-angular';
 import { InputtransferComponent } from './inputtransfer/inputtransfer.component';
 import { Test6Component } from './test6/test6.component';
+import { BootstrapComponent } from './bootstrap/bootstrap.component';
 
 const routes: Routes = [
   {
     path: '',
-    redirectTo: 'observable',
+    redirectTo: 'bootstrap',
     pathMatch: 'full',
   },
   {
@@ -134,6 +135,13 @@ const routes: Routes = [
       title: ''
     }
   },
+  {
+    path: 'bootstrap',
+    component: BootstrapComponent,
+    data: {
+      title: ''
+    }
+  },
 
 ];
 
@@ -146,7 +154,7 @@ const routes: Routes = [
     DtDirective, Test3Component, Test4Component, BtnHttpDirective,
     FuncComponent, ProgressComponent, LoadingBarComponent,
     Test5Component, TinymceComponent, Test6Component, AsyncComponent,
-    PromiseComponent, ObservableComponent, GeneratorComponent
+    PromiseComponent, ObservableComponent, GeneratorComponent, BootstrapComponent
 
   ],
   exports: [RouterModule, InputtransferComponent]
