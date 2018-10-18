@@ -27,7 +27,7 @@ import { BootstrapComponent } from './bootstrap/bootstrap.component';
 const routes: Routes = [
   {
     path: '',
-    redirectTo: 'generator',
+    redirectTo: 'observable',
     pathMatch: 'full',
   },
   {
