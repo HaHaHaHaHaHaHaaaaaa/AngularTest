@@ -10,6 +10,7 @@ import { environment } from '../environments/environment';
 import { HttpClientModule, HttpClientJsonpModule } from '@angular/common/http';
 import { wblToken } from './async/injectToken';
 import { GeneratorComponent } from './generator/generator.component';
+import { FirebaseComponent } from './firebase/firebase.component';
 
 @NgModule({
   declarations: [

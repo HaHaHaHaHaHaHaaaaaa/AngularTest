@@ -1,3 +1,5 @@
+import { AngularFireAuth } from '@angular/fire/auth';
+
 import { GeneratorComponent } from './generator/generator.component';
 import { ObservableComponent } from './observable/observable.component';
 import { PromiseComponent } from './promise/promise.component';
@@ -23,11 +25,16 @@ import { EditorModule } from '@tinymce/tinymce-angular';
 import { InputtransferComponent } from './inputtransfer/inputtransfer.component';
 import { Test6Component } from './test6/test6.component';
 import { BootstrapComponent } from './bootstrap/bootstrap.component';
+import { FirebaseComponent } from './firebase/firebase.component';
+
+import { AngularFireModule } from '@angular/fire';
+import { AngularFireStorageModule } from '@angular/fire/storage';
+import { config } from '../firebase';
 
 const routes: Routes = [
   {
     path: '',
-    redirectTo: 'observable',
+    redirectTo: 'firebase',
     pathMatch: 'full',
   },
   {
@@ -142,21 +149,29 @@ const routes: Routes = [
       title: ''
     }
   },
+  {
+    path: 'firebase',
+    component: FirebaseComponent,
+    data: {
+      title: ''
+    }
+  },
 
 ];
 
 @NgModule({
   imports: [
-    RouterModule.forRoot(routes), CommonModule, FormsModule, EditorModule
+    RouterModule.forRoot(routes), CommonModule, FormsModule, EditorModule, AngularFireModule.initializeApp(config), AngularFireStorageModule
   ],
   // tslint:disable-next-line:max-line-length
   declarations: [InputtransferComponent, SvgMumComponent, SvgComponent, Test1Component,
     DtDirective, Test3Component, Test4Component, BtnHttpDirective,
     FuncComponent, ProgressComponent, LoadingBarComponent,
     Test5Component, TinymceComponent, Test6Component, AsyncComponent,
-    PromiseComponent, ObservableComponent, GeneratorComponent, BootstrapComponent
+    PromiseComponent, ObservableComponent, GeneratorComponent, BootstrapComponent, FirebaseComponent
 
   ],
+  providers: [AngularFireAuth],
   exports: [RouterModule, InputtransferComponent]
 })
 export class AppRoutingModule { }

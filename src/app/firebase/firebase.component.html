@@ -1,0 +1,14 @@
+<div *ngIf="afAuth.user | async as user; else showLogin">
+  <h1>Hello {{ user.displayName }}!</h1>
+  <button (click)="logout()">Logout</button>
+</div>
+<ng-template #showLogin>
+  <p>Please login.</p>
+  <button (click)="login()">Login with Google</button>
+</ng-template>
+
+
+<input type="file" (change)="fileSelected($event)" name="file" id="file" placeholder="上传文件">
+
+
+<button (click)="download()">下载</button>
