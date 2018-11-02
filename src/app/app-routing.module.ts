@@ -29,7 +29,9 @@ import { FirebaseComponent } from './firebase/firebase.component';
 
 import { AngularFireModule } from '@angular/fire';
 import { AngularFireStorageModule } from '@angular/fire/storage';
+import { AngularFireMessagingModule } from '@angular/fire/messaging';
 import { config } from '../firebase';
+import { AngularFireDatabaseModule } from '@angular/fire/database';
 
 const routes: Routes = [
   {
@@ -161,7 +163,9 @@ const routes: Routes = [
 
 @NgModule({
   imports: [
-    RouterModule.forRoot(routes), CommonModule, FormsModule, EditorModule, AngularFireModule.initializeApp(config), AngularFireStorageModule
+    RouterModule.forRoot(routes), CommonModule, FormsModule, EditorModule,
+    AngularFireModule.initializeApp(config), AngularFireStorageModule,
+    AngularFireMessagingModule,AngularFireDatabaseModule
   ],
   // tslint:disable-next-line:max-line-length
   declarations: [InputtransferComponent, SvgMumComponent, SvgComponent, Test1Component,

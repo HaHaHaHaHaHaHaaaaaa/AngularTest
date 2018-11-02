@@ -3,6 +3,10 @@ import { AngularFireAuth } from '@angular/fire/auth';
 import { auth } from 'firebase/app';
 
 import { AngularFireStorage } from '@angular/fire/storage';
+import { AngularFireMessaging } from '@angular/fire/messaging';
+
+import { AngularFireDatabase } from '@angular/fire/database';
+import { mergeMapTo } from 'rxjs/operators';
 @Component({
   selector: 'app-firebase',
   templateUrl: './firebase.component.html',
@@ -10,7 +14,8 @@ import { AngularFireStorage } from '@angular/fire/storage';
 })
 export class FirebaseComponent implements OnInit {
 
-  constructor(public afAuth: AngularFireAuth, private storage: AngularFireStorage) {
+  // tslint:disable-next-line:max-line-length
+  constructor(public afAuth: AngularFireAuth, private storage: AngularFireStorage, private afMessaging: AngularFireMessaging, public db: AngularFireDatabase) {
 
   }
   login() {
@@ -34,6 +39,14 @@ export class FirebaseComponent implements OnInit {
 
   }
 
+  dbt() {
+
+    this.db.database.ref().once('value', (snapshot) => {
+      console.log(snapshot.val());
+
+    });
+  }
+
 
   fileSelected(ev) {
     const file = ev.target.files[0];
@@ -43,4 +56,18 @@ export class FirebaseComponent implements OnInit {
     const task = this.storage.upload(filePath, file);
   }
 
+
+  requestPermission() {
+    this.afMessaging.requestPermission
+      .pipe(mergeMapTo(this.afMessaging.tokenChanges))
+      .subscribe(
+        (token) => { console.log('Permission granted! Save to the server!', token); },
+        (error) => { console.error(error); },
+      );
+  }
+
+  listen() {
+    this.afMessaging.messages
+      .subscribe((message) => { console.log(message); });
+  }
 }
