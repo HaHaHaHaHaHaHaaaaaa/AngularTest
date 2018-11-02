@@ -25,5 +25,14 @@
 </div>
 
 <div>
-  <button (click)="dbt()">db</button>
+  <button (click)="dbt()">getdb</button>
+  <button (click)="qdbt()">qdb</button>
+
+</div>
+
+
+<div class="container">
+  <input type="text" [(ngModel)]="name" placeholder="姓名">
+  <input type="number" name="" [(ngModel)]="weight" placeholder="体重" id="">
+  <button class="btn btn-primary bg-danger" (click)="adddbt()">adddbt</button>
 </div>
