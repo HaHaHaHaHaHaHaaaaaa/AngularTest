@@ -1,3 +1,4 @@
+import { HttpClient } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
 import { AngularFireAuth } from '@angular/fire/auth';
 import { auth } from 'firebase/app';
@@ -17,7 +18,7 @@ export class FirebaseComponent implements OnInit {
   name: string;
   weight: number;
   // tslint:disable-next-line:max-line-length
-  constructor(public afAuth: AngularFireAuth, private storage: AngularFireStorage, private afMessaging: AngularFireMessaging, public db: AngularFireDatabase) {
+  constructor(public afAuth: AngularFireAuth, private storage: AngularFireStorage, private afMessaging: AngularFireMessaging, public db: AngularFireDatabase, private http: HttpClient) {
 
   }
   login() {
@@ -48,6 +49,13 @@ export class FirebaseComponent implements OnInit {
 
     });
 
+  }
+
+  testpacejs() {
+    this.http.get('http://www.wingodata.com/api/openapi.json').subscribe(res => {
+      console.log(res);
+
+    });
   }
 
   adddbt() {
@@ -122,7 +130,7 @@ export class FirebaseComponent implements OnInit {
       .subscribe(
         (token) => { console.log('Permission granted! Save to the server!', token); },
         (error) => { console.error(error); },
-    );
+      );
   }
 
   listen() {
