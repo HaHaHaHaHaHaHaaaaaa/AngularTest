@@ -30,8 +30,10 @@
               "node_modules/jquery/dist/jquery.min.js",
               "node_modules/popper.js/dist/umd/popper.min.js",
               "node_modules/bootstrap-material-design/dist/js/bootstrap-material-design.min.js",
-              "node_modules/pace-js/pace.min.js"
-
+              "node_modules/pace-js/pace.min.js",
+              {
+                "input": "node_modules/document-register-element/build/document-register-element.js"
+              }
             ]
           },
           "configurations": {
