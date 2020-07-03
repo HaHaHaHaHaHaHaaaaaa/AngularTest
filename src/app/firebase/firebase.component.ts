@@ -52,7 +52,7 @@ export class FirebaseComponent implements OnInit {
   }
 
   testpacejs() {
-    this.http.get('http://www.wingodata.com/api/openapi.json').subscribe(res => {
+    this.http.get('http://www.NULL.com/api/openapi.json').subscribe(res => {
       console.log(res);
 
     });
